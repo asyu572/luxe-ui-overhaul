@@ -1,11 +1,10 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/Sidebar";
-import { MetricsGrid } from "@/components/dashboard/MetricsGrid";
-import { RevenueChart } from "@/components/dashboard/RevenueChart";
-import { LiveActivity } from "@/components/dashboard/LiveActivity";
-import { QuickActions } from "@/components/dashboard/QuickActions";
-import { ParkingZones } from "@/components/dashboard/ParkingZones";
-import { Bell, Search, Menu } from "lucide-react";
+import { ParkingSpotFinder } from "@/components/user/ParkingSpotFinder";
+import { CurrentParking } from "@/components/user/CurrentParking";
+import { QuickStats } from "@/components/user/QuickStats";
+import { RecentActivity } from "@/components/user/RecentActivity";
+import { Bell, Search, QrCode, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import heroImage from "@/assets/parking-hero.jpg";
@@ -23,7 +22,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-4">
                 <SidebarTrigger className="p-2 hover:bg-muted rounded-lg transition-colors" />
                 <div className="hidden md:block">
-                  <h1 className="text-2xl font-display font-semibold">Dashboard</h1>
+                  <h1 className="text-2xl font-display font-semibold">Home</h1>
                   <p className="text-sm text-muted-foreground">Welcome back, John</p>
                 </div>
               </div>
@@ -32,10 +31,14 @@ export default function Dashboard() {
                 <div className="relative hidden lg:block">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input 
-                    placeholder="Search vehicles, zones..." 
+                    placeholder="Search parking locations..." 
                     className="pl-10 w-64 bg-muted/50 border-0 focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/20"
                   />
                 </div>
+                
+                <Button variant="premium" size="icon">
+                  <QrCode className="h-4 w-4" />
+                </Button>
                 
                 <Button variant="outline" size="icon" className="relative">
                   <Bell className="h-4 w-4" />
@@ -62,10 +65,10 @@ export default function Dashboard() {
             <div className="relative z-10 h-full flex items-center px-6">
               <div className="text-white">
                 <h1 className="text-4xl lg:text-5xl font-display font-bold mb-3">
-                  Premium Parking Control
+                  Find Your Perfect Spot
                 </h1>
                 <p className="text-lg lg:text-xl text-white/90 font-medium max-w-2xl">
-                  Advanced gateless parking management with real-time analytics, seamless payments, and intelligent automation.
+                  Discover available parking spaces instantly. Reserve, pay, and navigate with ease using our smart parking solution.
                 </p>
               </div>
             </div>
@@ -73,29 +76,24 @@ export default function Dashboard() {
 
           {/* Main Content */}
           <div className="flex-1 p-6 space-y-8">
-            {/* Metrics Grid */}
+            {/* Quick Stats */}
             <div className="slide-in">
-              <MetricsGrid />
+              <QuickStats />
             </div>
 
-            {/* Charts and Activity Row */}
+            {/* Main Features Row */}
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
               <div className="slide-in" style={{ animationDelay: '200ms' }}>
-                <RevenueChart />
+                <ParkingSpotFinder />
               </div>
               <div className="slide-in" style={{ animationDelay: '400ms' }}>
-                <LiveActivity />
+                <CurrentParking />
               </div>
             </div>
 
-            {/* Quick Actions and Parking Zones */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="slide-in" style={{ animationDelay: '600ms' }}>
-                <QuickActions />
-              </div>
-              <div className="lg:col-span-2 slide-in" style={{ animationDelay: '800ms' }}>
-                <ParkingZones />
-              </div>
+            {/* Recent Activity */}
+            <div className="slide-in" style={{ animationDelay: '600ms' }}>
+              <RecentActivity />
             </div>
           </div>
         </main>

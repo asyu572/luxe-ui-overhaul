@@ -27,40 +27,34 @@ import { cn } from "@/lib/utils";
 
 const navigationItems = [
   { 
-    title: "Dashboard", 
+    title: "Home", 
     url: "/", 
     icon: LayoutDashboard,
-    description: "Overview & Analytics"
+    description: "Find & Park"
   },
   { 
-    title: "Parking Zones", 
-    url: "/zones", 
-    icon: ParkingSquare,
-    description: "Manage Areas"
-  },
-  { 
-    title: "Live Monitoring", 
-    url: "/monitoring", 
+    title: "My Parking", 
+    url: "/parking", 
     icon: Car,
-    description: "Real-time Status"
+    description: "Current Session"
   },
   { 
-    title: "Payments", 
-    url: "/payments", 
+    title: "Find Spots", 
+    url: "/find", 
+    icon: ParkingSquare,
+    description: "Available Areas"
+  },
+  { 
+    title: "Payment", 
+    url: "/payment", 
     icon: CreditCard,
-    description: "Billing & Revenue"
+    description: "Cards & Billing"
   },
   { 
-    title: "Analytics", 
-    url: "/analytics", 
+    title: "History", 
+    url: "/history", 
     icon: BarChart3,
-    description: "Reports & Insights"
-  },
-  { 
-    title: "Users", 
-    url: "/users", 
-    icon: Users,
-    description: "Customer Management"
+    description: "Past Sessions"
   },
 ];
 
@@ -111,10 +105,10 @@ export function AppSidebar() {
           {!isCollapsed && (
             <div>
               <h1 className="font-display text-xl font-bold text-gradient">
-                GatelessPark
+                ParkEasy
               </h1>
               <p className="text-xs text-muted-foreground font-medium">
-                Pro Management Suite
+                Smart Parking App
               </p>
             </div>
           )}
@@ -124,7 +118,7 @@ export function AppSidebar() {
         <SidebarGroup>
           {!isCollapsed && (
             <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-              Main Navigation
+              Quick Access
             </SidebarGroupLabel>
           )}
           <SidebarGroupContent>
@@ -190,7 +184,7 @@ export function AppSidebar() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold text-sm">John Doe</div>
-                  <div className="text-xs text-muted-foreground">System Admin</div>
+                  <div className="text-xs text-muted-foreground">Premium User</div>
                 </div>
                 <button className="p-1.5 rounded-lg hover:bg-destructive/10 transition-colors">
                   <LogOut className="w-4 h-4 text-muted-foreground hover:text-destructive" />
